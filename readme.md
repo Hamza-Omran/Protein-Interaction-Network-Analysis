@@ -122,7 +122,3 @@ The analysis reveals:
 - Temporal analysis of protein interactions
 - Disease-specific network analysis
 - Functional enrichment analysis of hub proteins
-
-## Contributors
-
-Project developed as part of Introduction to Social Networks course
