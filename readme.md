@@ -203,4 +203,3 @@ It is designed as a **network analysis foundations project**, not a bioinformati
 **Status:** Completed academic project  
 **Scope:** Network science & biological systems  
 **Type:** Social network analysis (PPI networks)
-```
