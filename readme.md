@@ -1,124 +1,206 @@
-# Social Network Analysis on Protein Interactions in the Human Body - 2023
+# Social Network Analysis of Protein–Protein Interactions (Human Body)
 
-## Academic Context
-This project was developed as part of the "Intro to Social Networks" course (2023).
+An **academic application of social network analysis (SNA)** techniques to **protein–protein interaction (PPI) networks**, aimed at identifying **biologically critical proteins** involved in antiviral responses using **centrality measures**.
+
+**Context:** Introduction to Social Networks – University Coursework (2023)  
+**Domain:** Network Science · Graph Analysis · Computational Biology  
+**Type:** Academic Network Analysis Project
+
+---
 
 ## Project Overview
 
-This project applies social network analysis techniques to study protein interaction networks in the human body, with a focus on identifying critical proteins involved in antiviral responses.
+This project applies **graph-theoretic and social network analysis concepts** to study **protein interaction networks** in the human body.
+
+Proteins are modeled as **nodes**, and their interactions as **edges**, forming a large-scale biological network.  
+By computing multiple **node centrality measures**, the project identifies proteins that occupy **structurally important positions**, which often correspond to **biological significance** in antiviral defense mechanisms.
+
+The work emphasizes:
+- Network modeling and visualization
+- Centrality-based importance ranking
+- Cross-tool validation (Cytoscape + R)
+- Interpretability of biological networks
+
+---
 
 ## Aim
 
-To determine the most important proteins in the human body through centrality analysis and to visualize their interaction patterns within the protein network. The analysis focuses on understanding which proteins play crucial roles in fighting viruses.
+To identify **key proteins** in the human protein interaction network by analyzing their **structural roles** using centrality measures, and to visualize how these proteins influence information flow and connectivity within the network.
+
+---
 
 ## Hypothesis
 
-By applying node centrality measures (degree centrality, betweenness centrality, closeness centrality, and eigenvector centrality), we can identify key proteins that serve as critical nodes in the biological network.
+Proteins with high centrality values (degree, betweenness, closeness, eigenvector) act as **critical hubs or bridges** in the biological network and are more likely to play essential roles in **viral response and cellular regulation**.
+
+---
 
 ## Methodology
 
-The analysis employs four types of centrality measures:
-- **Degree Centrality**: Measures the number of direct connections a protein has
-- **Betweenness Centrality**: Identifies proteins that act as bridges between other proteins
-- **Closeness Centrality**: Determines how quickly a protein can interact with all other proteins in the network
-- **Eigenvector Centrality**: Assesses the influence of a protein based on the importance of its connections
+The analysis applies four complementary **centrality metrics**:
 
-## Tools and Technologies
+### 1. Degree Centrality
+- Measures the number of direct interactions
+- Identifies **hub proteins** with many connections
+
+### 2. Betweenness Centrality
+- Measures how often a protein lies on shortest paths
+- Identifies **bridge proteins** controlling information flow
+
+### 3. Closeness Centrality
+- Measures average distance to all other proteins
+- Identifies proteins with **fast network-wide influence**
+
+### 4. Eigenvector Centrality
+- Measures influence based on connected neighbors
+- Highlights **globally influential proteins**, not just highly connected ones
+
+Using multiple measures avoids bias toward a single definition of “importance”.
+
+---
+
+## Tools & Technologies
 
 ### Cytoscape
-- Visualization of the protein interaction network
-- Network subsetting capabilities for handling large datasets
-- User-friendly interface for exploratory analysis
-- Calculation of basic centrality measures
+- Large-scale network visualization
+- Network subsetting for tractability
+- Built-in computation of basic centralities
+- Interactive exploratory analysis
 
 ### R Studio
-- Verification and validation of centrality calculations
-- Computation of eigenvector centrality
-- Data processing and statistical analysis
-- Implementation in RFILE.R
+- Independent verification of centrality calculations
+- Eigenvector centrality computation
+- Statistical processing using `igraph`
+- Reproducible scripting (`RFILE.R`)
 
 ### Microsoft Excel
-- Data viewing and preliminary exploration
-- Result presentation in accessible format
+- Data inspection and result presentation
+- Tabular reporting of ranked proteins
 
-## Data Structure
+---
 
-### Input Files
-- `kras network.xml` - Primary network data
-- `kras network.xgmml` - Extended graph markup format
-- `kras network.graphml` - Graph modeling format
-- `kras network default network.csv` - Edge list
-- `human node.csv` - Node attributes and properties
+## Data Description
 
-### Data Fields
-The node dataset includes:
-- Network topology metrics (degree, betweenness, closeness, eigenvector)
-- Biological annotations (species, interactor type, protein names)
-- Systematic identifiers and synonyms
+### Input Network Files
+- `kras network.xml`
+- `kras network.xgmml`
+- `kras network.graphml`
+- `kras network default network.csv` (edge list)
+- `human node.csv` (node attributes)
 
-## Project Workflow
+### Node Attributes Include
+- Degree, betweenness, closeness, eigenvector centrality
+- Protein names and identifiers
+- Biological annotations (species, interactor type)
+- Synonyms and metadata
 
-1. **Data Import**: Load XML network files into Cytoscape
-2. **Network Visualization**: Examine the overall structure and identify patterns
-3. **Subset Selection**: Extract relevant subnetworks from the massive dataset
-4. **Centrality Calculation**: Compute all four centrality measures
-5. **Validation**: Verify results using R Studio
-6. **Analysis**: Interpret centrality scores to identify key proteins
-7. **Documentation**: Export results to Excel for reporting
+---
+
+## Workflow
+
+1. Import network files into **Cytoscape**
+2. Visualize global network structure
+3. Extract relevant subnetworks for analysis
+4. Compute centrality measures
+5. Validate results using **R (igraph)**
+6. Interpret biologically significant proteins
+7. Export results for reporting
+
+---
 
 ## Key Findings
 
 The analysis reveals:
-- Critical hub proteins with high degree centrality
-- Bridge proteins identified through betweenness centrality
-- Proteins with rapid network-wide influence (high closeness)
-- Influential proteins based on their network position (eigenvector)
 
-## File Organization
-/Intro to Social Project/
-├── RFILE.R # R analysis scripts
-├── data/
-│ ├── kras network.xml # Network data
-│ ├── kras network.xgmml # Alternative format
-│ ├── kras network.graphml # Graph format
-│ ├── kras network default network.csv # Edge data
-│ ├── human node.csv # Node attributes
-│ └── new.csv # Processed results
-└── social proejct/ # Project directory
+- **Hub proteins** with high degree centrality
+- **Bridging proteins** critical for network connectivity
+- Proteins capable of rapid influence across the network
+- Highly influential proteins identified by eigenvector centrality
 
+These proteins are strong candidates for **biological importance** in antiviral response pathways.
 
-## Usage
+---
 
-### Cytoscape Analysis
-1. Open Cytoscape application
-2. Import network file (XML/XGMML/GraphML)
-3. Apply layout algorithms for visualization
-4. Calculate network statistics using built-in tools
-5. Export results for further analysis
+## Technical Characteristics
 
-### R Analysis
-1. Open RFILE.R in R Studio
-2. Load required libraries (igraph, network analysis packages)
-3. Import node and edge data
-4. Run centrality calculations
-5. Export results to CSV format
+- **Network Type:** Protein–Protein Interaction (PPI)
+- **Scale:** Large biological network (subset-based analysis)
+- **Node Types:** Proteins, genes, RNAs
+- **Species:** *Homo sapiens*
+- **Data Source:** Protein interaction databases
 
-## Technical Specifications
-
-- **Network Size**: Large-scale protein interaction network
-- **Node Types**: Proteins, genes, ribonucleic acids
-- **Species Focus**: Homo sapiens (Human)
-- **Data Source**: Protein interaction databases
+---
 
 ## Limitations
 
-- Eigenvector centrality requires more computational resources
-- Large network size necessitates subsetting for detailed analysis
-- Some proteins lack complete annotation data
+- Large network size requires subnetwork extraction
+- Eigenvector centrality is computationally expensive
+- Incomplete biological annotations for some proteins
+- Static network (no temporal dynamics)
 
-## Future Directions
+---
 
-- Integration of additional biological databases
-- Temporal analysis of protein interactions
+## Future Work
+
+- Integrate additional biological databases
 - Disease-specific network analysis
+- Temporal or dynamic interaction modeling
 - Functional enrichment analysis of hub proteins
+- Machine learning on network-derived features
+
+---
+
+## Project Structure
+
+```
+
+Intro to Social Project/
+├── RFILE.R
+├── data/
+│   ├── kras network.xml
+│   ├── kras network.xgmml
+│   ├── kras network.graphml
+│   ├── kras network default network.csv
+│   ├── human node.csv
+│   └── new.csv
+└── social project/
+
+```
+
+---
+
+## Usage
+
+### Cytoscape
+1. Open Cytoscape
+2. Import network file (XML / XGMML / GraphML)
+3. Apply layout algorithms
+4. Compute network statistics
+5. Export results
+
+### R Studio
+1. Open `RFILE.R`
+2. Load required libraries (`igraph`)
+3. Import node and edge data
+4. Run centrality computations
+5. Export validated results
+
+---
+
+## Engineering Focus
+
+This project emphasizes:
+- Network science fundamentals
+- Centrality interpretation beyond degree
+- Cross-tool validation
+- Biological insight through graph structure
+- Application of social network theory to biology
+
+It is designed as a **network analysis foundations project**, not a bioinformatics pipeline.
+
+---
+
+**Status:** Completed academic project  
+**Scope:** Network science & biological systems  
+**Type:** Social network analysis (PPI networks)
+```
